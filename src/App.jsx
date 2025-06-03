@@ -8,7 +8,7 @@ function App() {
   // Features data adapted for our Feature component structure
   const features = [
     {
-      title: "Chat with your AI edit assistant to automate repetitive tasks.",
+      title: "Chat with your AI edit assistant.",
       description: "Tell it to organize your timeline, apply a rough grade, or build out a draft sequence—it responds instantly. Automate repetitive tasks",
       imageSrc: "/rivestills/AI_edit_assistant.png",
       imageAlt: "AI Chat Interface",
@@ -71,8 +71,6 @@ function App() {
         title="You Create"
         subtitle="We Automate"
         description="Nice Touch, the OS for creators"
-        imageSrc="https://placehold.co/800x500/9859A7/FFFFFF/png?text=Hero+Image"
-        imageAlt="Nice Touch OS Interface"
       />
       <FeaturesSection features={features} />
       <CTASection />

@@ -1,13 +1,15 @@
 import React from 'react';
 import './styles/styles.css';
+import RiveAnimation from './RiveAnimation';
 
 const HeroSection = ({ 
   title = "You Create",
   subtitle = "We Automate", 
   description = "Nice Touch, the OS for creators",
-  imageSrc = "/hero-screenshot.png",
-  imageAlt = "Hero Screenshot"
+  artboard = "AI_edit_assistant",
+  animationClass = "hero-animation"
 }) => {
+  
   return (
     <section className="hero-section">
       <div className="feature-container hero-container">
@@ -25,11 +27,10 @@ const HeroSection = ({
           </div>
 
           {/* Image Section */}
-          <div className="hero-image">
-            <img 
-              src={imageSrc} 
-              alt={imageAlt}
-              className="feature-screenshot hero-screenshot"
+          <div className="hero-image"> 
+            <RiveAnimation 
+              artboard={artboard} 
+              className={animationClass}
             />
           </div>
         </div>

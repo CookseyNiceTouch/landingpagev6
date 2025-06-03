@@ -13,6 +13,8 @@ const FeaturesSection = ({ features = [] }) => {
             description={feature.description}
             imageSrc={feature.imageSrc}
             imageAlt={feature.imageAlt}
+            artboard={feature.artboard}
+            animationClass={feature.animationClass || `animation-container-${(index % 4) + 1}`}
           />
         ))}
       </div>
