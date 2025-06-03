@@ -57,6 +57,12 @@ body, html {
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box; /* Ensure all elements use border-box */
 }
 
 /* Section containers with 8rem padding from browser edges */
@@ -103,16 +109,16 @@ body, html {
   .hero-section,
   .features-section,
   .cta-section {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   .features-section {
-    padding: 2rem;
+    padding: 1rem;
   }
   
   .cta-section {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
