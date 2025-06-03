@@ -1,0 +1,117 @@
+/* ===== UI BITS COMPONENTS STYLES ===== */
+/* Reusable UI components with Figma-accurate styling */
+
+/* ===== KNOB COMPONENT ===== */
+.ui-knob {
+  position: relative;
+  z-index: 2;
+}
+
+.ui-knob-base {
+  width: 5.625rem; /* Exact Figma width */
+  height: 5.625rem; /* Exact Figma height */
+  flex-shrink: 0; /* Exact Figma flex-shrink */
+  border-radius: 7.1875rem; /* Exact Figma border-radius */
+  border: none; /* Remove border for gradient approach */
+  /* Exact Figma background - double linear gradient */
+  background: 
+    linear-gradient(180deg, #E6E6E6 0%, #CFCFCF 100%), 
+    linear-gradient(180deg, #E6E6E6 0%, #CFCFCF 100%);
+  /* Exact Figma box-shadow in correct order */
+  /* box-shadow: 
+    -8px -7px 10.4px -2px rgb(209, 209, 209), 
+    19px 23px 7.6px -2px rgba(0, 0, 0, 0.44), 
+    6px 7px 8.6px -1px rgba(255, 255, 255, 0.33) inset; */
+  position: relative;
+}
+
+/* Gradient border using pseudo-element */
+.ui-knob-base::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 7.1875rem; /* Match parent border-radius */
+  background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 50%, #999999 100%); /* 45-degree gradient */
+  box-shadow: 
+    -10px -10px 10px -2px rgba(255, 255, 255, 0.603), 
+    20px 20px 6px -2px rgba(0, 0, 0, 0.226), 
+    6px 7px 8.6px -1px rgba(255, 255, 255, 0.904) inset;
+  z-index: -1;
+}
+
+.ui-knob-indicator {
+  position: absolute;
+  /* Centered horizontally and inset from top edge */
+  top: 6px; /* Inset from edge */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Perfect horizontal centering */
+  /* Exact Figma dimensions */
+  width: 3.6842117309570312px;
+  height: 8.421051979064941px;
+  /* Exact Figma color */
+  background: #383838;
+  border-radius: 2px;
+  /* Exact Figma box-shadow */
+  box-shadow: 
+    inset -1px -1px 1.399999976158142px 0px rgba(255, 255, 255, 0.44), 
+    inset 1px 1px 1.100000023841858px 0px rgba(0, 0, 0, 1);
+  z-index: 3;
+}
+
+/* ===== HOLE COMPONENT ===== */
+.ui-hole {
+  position: relative;
+  z-index: 2;
+}
+
+.ui-hole-circle {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  border-radius: 50%;
+  box-shadow: 
+    4px 6px 12px -2px rgba(255, 255, 255, 0.8), 
+    -3px -3px 6px 0px rgba(0, 0, 0, 0.4), 
+    inset -6px -6px 16px -3px rgba(0, 0, 0, 0.7), 
+    inset -3px -3px 6px -1px rgba(255, 255, 255, 0.9),
+    inset 2px 2px 4px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.ui-hole-circle::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(0, 0, 0, 0.8) 70%
+  );
+  border-radius: 50%;
+}
+
+/* ===== VARIANTS & MODIFIERS ===== */
+
+/* Small variants */
+.ui-knob--small {
+  width: 60px;
+  height: 60px;
+}
+
+.ui-hole--small {
+  width: 8px;
+  height: 8px;
+}
+
+/* Large variants */
+.ui-knob--large {
+  width: 120px;
+  height: 120px;
+}
+
+.ui-hole--large {
+  width: 16px;
+  height: 16px;
+}

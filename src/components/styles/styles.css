@@ -1,0 +1,475 @@
+/* Feature Component Styles - FIGMA ACCURATE */
+.feature-container {
+  display: flex;
+  width: 100%; /* Use full available width */
+  height: 49.625rem; /* 794px */
+  padding: 0.625rem; /* 10px */
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem; /* Exact Figma gap */
+  border-radius: 0.4375rem; /* 7px */
+  border: 3px solid #FFF; /* Exact Figma border */
+  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #8D9CA2 8.7%, #7B7B7B 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  margin: 0 auto; /* Center the container */
+}
+
+/* Hero Container - Inherits from feature-container */
+.hero-container {
+  align-items: stretch; /* Full width sections */
+  height: auto; /* Hug content instead of fixed height */
+  min-height: auto; /* Remove any min-height constraints */
+}
+
+/* Remove the gradient border pseudo-element since we're using solid white border */
+.feature-container::before {
+  display: none;
+}
+
+/* Shared Header/Footer Section Base - FIGMA ACCURATE */
+.feature-section-base {
+  display: flex;
+  flex-direction: row; /* Needed for horizontal layout */
+  height: 11.25rem; /* Exact Figma height */
+  padding: 0rem 2.5625rem; /* Exact Figma padding */
+  align-items: center;
+  gap: 3.875rem; /* Exact Figma gap */
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 0.4375rem; /* 7px */
+  border: 3px solid #FFF; /* Exact Figma border */
+  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #F6F6F6 0%, #DDD 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Remove gradient border pseudo-element for solid white border */
+.feature-section-base::before {
+  display: none;
+}
+
+/* Hero Content Section */
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-self: stretch;
+  flex: 1;
+  gap: 0.25rem; /* Match container gap */
+}
+
+/* Hero Text Section - 50% width */
+.hero-text-section {
+  flex: 1; /* 50% width */
+  justify-content: center;
+  padding: 2rem 3rem; /* More generous padding for text */
+  height: auto; /* Let it match the image section height */
+  min-height: auto; /* Remove fixed height constraints */
+  display: flex; /* Override the feature-section-base height */
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  justify-content: center; /* Center content vertically */
+}
+
+.hero-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 0.9em;
+  letter-spacing: -0.02em;
+  color: #6D6D6D;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* Similar text-shadow to feature title */
+  text-shadow: 
+    1px 1px 2.1px -1px rgba(0, 0, 0, 0.47), 
+    inset 1px 0.5px 1.1px -1px rgba(255, 255, 255, 0.17), 
+    inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3em;
+  color: #8A8A8A;
+  margin: 0;
+}
+
+/* Hero Image Section - 50% width */
+.hero-image-section {
+  flex: 1; /* 50% width */
+  justify-content: center;
+  padding: 1rem; /* Less padding to showcase image */
+  height: auto; /* Let it match the text section height */
+  min-height: auto; /* Remove fixed height constraints */
+}
+
+.hero-image {
+  flex: 1; /* 50% width - takes up right half */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem; /* Some padding around the image */
+  height: auto; /* Let the image determine the height */
+  margin: 0; /* Ensure no margin */
+  box-sizing: border-box; /* Include border in size calculations */
+}
+
+.hero-screenshot {
+  width: 100%;
+  height: auto; /* Let height be determined by aspect ratio */
+  object-fit: contain; /* Maintain aspect ratio */
+  max-width: 100%;
+  border-radius: 0.4375rem; /* Keep the image border radius */
+  border: 3px solid #FFF; /* Match the text panel border */
+  box-sizing: border-box; /* Include border in size calculations */
+  box-shadow: 
+    0px 0px 0.9px 2px #AFAFAF, 
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Keep the image shadow */
+}
+
+/* Feature Title Section - Only unique properties */
+.feature-title {
+  justify-content: flex-start; /* Title alignment */
+}
+
+/* Feature Footer Section - Only unique properties */
+.feature-footer {
+  justify-content: flex-end; /* Footer alignment */
+}
+
+.feature-title-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 0.828125em;
+  letter-spacing: -0.05em;
+  color: #6D6D6D;
+  text-align: left;
+  width: auto; /* Let width be determined by content */
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Stack the lines vertically */
+  /* Exact Figma text-shadow */
+  text-shadow: 
+    1px 1px 2.1px -1px rgba(0, 0, 0, 0.47), 
+    inset 1px 0.5px 1.1px -1px rgba(255, 255, 255, 0.17), 
+    inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.feature-title-line {
+  display: block;
+}
+
+.feature-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3em;
+  color: #FFFFFF;
+  text-align: left;
+  flex: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Feature Content Section */
+.feature-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  flex: 1;
+  gap: 0;
+}
+
+/* Feature Image Section - FIGMA ACCURATE */
+.feature-image {
+  width: 34.25rem; /* Exact Figma width */
+  height: 25.375rem; /* Exact Figma height */
+  flex-shrink: 0; /* Exact Figma flex-shrink */
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px; /* Match child element to ensure proper corner rounding */
+}
+
+.feature-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #363636; /* Moved from container */
+  border-radius: 5px; /* Exact Figma border-radius - consolidated here */
+  /* Exact Figma box-shadow */
+  box-shadow: 
+    0px 0px 0.9px 2px #AFAFAF, 
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* Figma background properties - lightgray fallback with positioning */
+  background: rgb(0, 0, 0) -114.279px -10.803px / 126.601% 105.1% no-repeat;
+}
+
+/* Rive Animation Styles */
+.animation-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.rive-animation {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #363636;
+  border-radius: 5px;
+  box-shadow: 
+    0px 0px 0.9px 2px #AFAFAF, 
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.animation-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  color: #666;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  border: 3px solid #363636;
+  border-radius: 5px;
+  box-shadow: 
+    0px 0px 0.9px 2px #AFAFAF, 
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Feature Text Section */
+.feature-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 10px;
+  padding: 0px 90px;
+  width: 595px;
+  flex: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .feature-container {
+    width: 100%;
+    max-width: 72.6875rem;
+    height: auto;
+    min-height: 600px;
+    border-radius: 0.4375rem;
+  }
+  
+  .feature-title,
+  .feature-footer {
+    height: auto;
+    min-height: 8rem;
+    padding: 1rem 2rem;
+  }
+  
+  .feature-title-text {
+    font-size: clamp(32px, 5vw, 64px);
+    width: auto;
+  }
+  
+  .feature-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .feature-image,
+  .feature-text {
+    width: 100%;
+  }
+  
+  .feature-image {
+    height: auto;
+    aspect-ratio: 274/203;
+  }
+  
+  .feature-text {
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-container {
+    padding: 15px;
+    gap: 0.5rem;
+    border-radius: 0.3125rem;
+  }
+  
+  .feature-title,
+  .feature-footer {
+    height: auto;
+    min-height: 6rem;
+    padding: 1rem;
+    gap: 2rem;
+    border-radius: 0.3125rem;
+  }
+  
+  .feature-description {
+    font-size: 18px;
+  }
+  
+  .feature-image {
+    border-radius: 0.3125rem;
+    aspect-ratio: 274/203;
+  }
+  
+  .feature-screenshot {
+    border-radius: 0.3125rem;
+  }
+}
+
+/* ===== FEATURES SECTION ===== */
+.features-section {
+  /* Padding is now handled by App.css - 4rem on sides, 2rem top/bottom */
+  background: transparent;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: none; /* Remove max-width to use full available space */
+  margin: 0; /* Remove auto centering */
+  padding: 0; /* Remove internal padding */
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  /* Padding is now handled by App.css - 4rem on sides, 2rem top/bottom */
+  background: transparent;
+}
+
+.cta-container {
+  max-width: none; /* Remove max-width to use full available space */
+  margin: 0; /* Remove auto centering */
+  padding: 0; /* Remove internal padding */
+}
+
+.cta-content {
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+}
+
+.cta-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.1em;
+  letter-spacing: -0.02em;
+  color: #6D6D6D;
+  margin: 0;
+  /* Similar text-shadow to feature title */
+  text-shadow: 
+    1px 1px 2.1px -1px rgba(0, 0, 0, 0.47), 
+    inset 1px 0.5px 1.1px -1px rgba(255, 255, 255, 0.17), 
+    inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.cta-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3em;
+  color: #8A8A8A;
+  margin: 0;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.cta-button-primary {
+  background: linear-gradient(135deg, #9859A7 0%, #7B4B9D 100%);
+  color: white;
+  border-color: #9859A7;
+}
+
+.cta-button-primary:hover {
+  background: linear-gradient(135deg, #A866B5 0%, #8A5AAB 100%);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(152, 89, 167, 0.3);
+}
+
+.cta-button-secondary {
+  background: transparent;
+  color: #6D6D6D;
+  border-color: #DDDDDD;
+}
+
+.cta-button-secondary:hover {
+  background: rgba(109, 109, 109, 0.1);
+  border-color: #9859A7;
+  color: #9859A7;
+}
+
+/* CTA Responsive Design */
+@media (max-width: 768px) {
+  .cta-content {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-title {
+    font-size: 36px;
+  }
+  
+  .cta-description {
+    font-size: 20px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
