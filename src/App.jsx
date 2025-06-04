@@ -72,6 +72,9 @@ function App() {
       {/* Test SquareButton positioned in top-left */}
       <SquareButton 
         onClick={() => console.log('Square button clicked!')}
+        hue={41} // Red hue for testing
+        saturation={100} // Grayscale for testing saturation fix
+        lightness={50} // Darker lightness for testing
         style={{
           position: 'absolute',
           top: '40px',
