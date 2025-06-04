@@ -3,6 +3,7 @@ import HeroSection from './components/herosection'
 import SignupSection from './components/signup'
 import FeaturesSection from './components/featuresection'
 import CTASection from './components/ctasection'
+import SquareButton from './components/UIbits/sqbutton'
 import './App.css'
 
 function App() {
@@ -68,6 +69,17 @@ function App() {
 
   return (
     <div className="app">
+      {/* Test SquareButton positioned in top-left */}
+      <SquareButton 
+        onClick={() => console.log('Square button clicked!')}
+        style={{
+          position: 'absolute',
+          top: '40px',
+          left: '200px',
+          zIndex: 15
+        }}
+      />
+      
       <HeroSection 
         title="You Create"
         subtitle="We Automate"

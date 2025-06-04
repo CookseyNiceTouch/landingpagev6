@@ -568,7 +568,7 @@
 }
 
 .signup-content {
-  justify-content: flex-start; /* Keep content left-aligned horizontally */
+  justify-content: center; /* Center content horizontally for even spacing */
   align-items: center; /* Center content vertically */
   padding: 1.5rem; /* Much smaller vertical padding */
   text-align: left;
