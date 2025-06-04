@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HeroSection from './components/herosection'
+import SignupSection from './components/signup'
 import FeaturesSection from './components/featuresection'
 import CTASection from './components/ctasection'
 import './App.css'
@@ -72,6 +73,7 @@ function App() {
         subtitle="We Automate"
         description="Nice Touch, the OS for creators"
       />
+      <SignupSection />
       <FeaturesSection features={features} />
       <CTASection />
     </div>

@@ -67,6 +67,7 @@ body, html {
 
 /* Section containers with 8rem padding from browser edges */
 .hero-section,
+.signup-section,
 .features-section,
 .cta-section {
   width: 100%;
@@ -77,6 +78,11 @@ body, html {
 }
 
 /* Override the existing features-section and cta-section padding */
+.signup-section {
+  padding: 2rem 8rem; /* Top/bottom + left/right edge padding - same as features */
+  background: transparent;
+}
+
 .features-section {
   padding: 2rem 8rem; /* Top/bottom + left/right edge padding */
   background: transparent;
@@ -90,10 +96,15 @@ body, html {
 /* Responsive padding adjustments */
 @media (max-width: 1200px) {
   .hero-section,
+  .signup-section,
   .features-section,
   .cta-section {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+  
+  .signup-section {
+    padding: 2rem 4rem;
   }
   
   .features-section {
@@ -107,10 +118,15 @@ body, html {
 
 @media (max-width: 768px) {
   .hero-section,
+  .signup-section,
   .features-section,
   .cta-section {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  
+  .signup-section {
+    padding: 1rem;
   }
   
   .features-section {

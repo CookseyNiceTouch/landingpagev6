@@ -41,7 +41,7 @@
   border-radius: 0.4375rem; /* 7px */
   border: 3px solid #FFF; /* Exact Figma border */
   background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #F6F6F6 0%, #DDD 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.255);
   position: relative;
 }
 
@@ -422,7 +422,7 @@
 .features-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 10rem;
   max-width: none; /* Remove max-width to use full available space */
   margin: 0; /* Remove auto centering */
   padding: 0; /* Remove internal padding */
@@ -551,5 +551,84 @@
     width: 100%;
     max-width: 250px; /* Smaller max-width for mobile */
     padding: 0.75rem 1.5rem; /* Adjust padding for mobile */
+  }
+}
+
+/* ===== SIGNUP SECTION ===== */
+.signup-section {
+  /* Padding is now handled by App.css - same as features section */
+  background: transparent;
+}
+
+.signup-container {
+  max-width: 40rem; /* Smaller than full width to sit on the left */
+  margin: 0; /* Remove auto centering to align left */
+  height: auto; /* Let content determine height */
+  min-height: auto; /* Override feature-container min-height */
+}
+
+.signup-content {
+  justify-content: flex-start; /* Keep content left-aligned horizontally */
+  align-items: center; /* Center content vertically */
+  padding: 1.5rem; /* Much smaller vertical padding */
+  text-align: left;
+  height: auto; /* Let content determine height */
+  min-height: auto; /* Remove any min-height constraints */
+  /* Respect the feature-container gap and padding */
+  margin: 0; /* Reset any margin to work with container gap */
+  box-sizing: border-box;
+}
+
+.signup-text-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* Tighter gap */
+  max-width: 100%; /* Use full container width */
+  margin: 0;
+  align-items: center; 
+}
+
+.signup-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 36px); /* Smaller font size */
+  line-height: 1em;
+  letter-spacing: -0.02em;
+  color: #6D6D6D;
+  margin: 0;
+  /* Similar text-shadow to feature title */
+  text-shadow: 
+    1px 1px 2.1px -1px rgba(0, 0, 0, 0.47), 
+    inset 1px 0.5px 1.1px -1px rgba(255, 255, 255, 0.17), 
+    inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.signup-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.8vw, 20px); /* Smaller font size */
+  line-height: 1.3em;
+  color: #8A8A8A;
+  margin: 0;
+}
+
+.signup-button-placeholder {
+  margin-top: 0.5rem; /* Small top margin for spacing */
+  /* Placeholder for button styling */
+}
+
+/* Signup Responsive Design */
+@media (max-width: 768px) {
+  .signup-container {
+    max-width: 100%; /* Use full width on mobile */
+  }
+  
+  .signup-content {
+    padding: 1rem 1.5rem; /* More compact on mobile */
+    text-align: center; /* Center align on mobile for better UX */
+  }
+  
+  .signup-text-content {
+    gap: 0.75rem; /* Even tighter spacing on mobile */
   }
 }
