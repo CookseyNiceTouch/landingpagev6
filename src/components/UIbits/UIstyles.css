@@ -26,6 +26,27 @@
   outline: none;
 }
 
+/* Hover state - brighten inner circles */
+.ui-big-button:hover .ui-big-button-base::before {
+  background: linear-gradient(135deg, #ffb300 0%, #ffc233 50%, #fff2cc 100%);
+}
+
+.ui-big-button:hover .ui-big-button-base::after {
+  background: linear-gradient(135deg, #ffedbb 0%, #ffc233 50%, #cc9500 100%);
+}
+
+/* Pressed state - inset shadows */
+
+.ui-big-button:active .ui-big-button-base::before {
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ui-big-button:active .ui-big-button-base::after {
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.4),
+    0 0 0 1px #38383883;
+}
+
 .ui-big-button-base {
   position: relative;
   width: 120px;
@@ -61,6 +82,7 @@
   bottom: 10px;
   background: linear-gradient(135deg, #ffe3a7 0%, #ffae00 50%, #a87300 100%);
   border-radius: 50%;
+  border: 1px solid #38383883;
   box-shadow: 
     8px 8px 8px rgba(88, 88, 88, 0.658),
     -6px -6px 8px #ffe9ba;
