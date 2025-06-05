@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles/styles.css';
-import { Knob, Hole } from './UIbits';
+import { Knob, Hole, Led } from './UIbits';
 import RiveAnimation from './RiveAnimation';
 
 const Feature = ({ 
@@ -9,10 +9,20 @@ const Feature = ({
   imageSrc = "/feature-screenshot.png",
   imageAlt = "Feature Screenshot",
   artboard = null,
-  animationClass = ""
+  animationClass = "",
+  isReversed = false
 }) => {
-  // State for knob rotation (if you want controlled mode)
+  // State for knob rotation and LED brightness control
   const [knobAngle, setKnobAngle] = useState(0);
+  
+  // Convert knob angle (-135 to 135) to LED brightness (0 to 1)
+  const angleTobrightness = (angle) => {
+    // Map angle range [-135, 135] to brightness range [0, 1]
+    const normalizedAngle = (angle + 135) / 270; // Convert to 0-1 range
+    return Math.max(0, Math.min(1, normalizedAngle)); // Scale to 0-1 range
+  };
+
+  const ledBrightness = angleTobrightness(knobAngle);
   
   // Function to split title into two lines at the best point near the middle
   const splitTitle = (titleString) => {
@@ -56,7 +66,7 @@ const Feature = ({
       </div>
 
       {/* Feature Content Section */}
-      <div className="feature-content">
+      <div className={`feature-content ${isReversed ? 'feature-content-reversed' : ''}`}>
         {/* Image Section */}
         <div className="feature-image">
           {artboard ? (
@@ -82,15 +92,23 @@ const Feature = ({
 
       {/* Feature Footer Section */}
       <div className="feature-section-base feature-footer">
-        {/* Decorative Hole/Dot - Exact Figma size */}
-        <Hole size={10} />
+        {/* Decorative LED - Brightness controlled by knob */}
+        <Led 
+          size={10} 
+          hue={25} 
+          saturation={100} 
+          lightness={10} 
+          brightness={ledBrightness}
+        />
 
-        {/* Interactive Knob - Uncontrolled mode (manages own state) */}
+        {/* Interactive Knob - Controls LED brightness */}
         <Knob 
           size={90} 
           sensitivity={1.5}
           minAngle={-135}
           maxAngle={135}
+          indicatorAngle={knobAngle}
+          onChange={setKnobAngle}
         />
       </div>
     </div>

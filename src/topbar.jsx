@@ -29,10 +29,10 @@ const TopBar = ({ onSignupClick }) => {
         {/* Right button with text */}
         <div className="topbar-item">
           <SquareButton 
-            onClick={() => console.log('Discord clicked!')}
+            onClick={() => window.open('https://discord.com/invite/jpp3mQUCYN', '_blank', 'noopener,noreferrer')}
             hue={270}
-            saturation={100}
-            lightness={50}
+            saturation={0}
+            lightness={95}
           />
           <span className="topbar-text">Join Us on Discord</span>
         </div>

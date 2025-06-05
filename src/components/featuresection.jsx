@@ -15,6 +15,7 @@ const FeaturesSection = ({ features = [] }) => {
             imageAlt={feature.imageAlt}
             artboard={feature.artboard}
             animationClass={feature.animationClass || `animation-container-${(index % 4) + 1}`}
+            isReversed={index % 2 === 1}
           />
         ))}
       </div>

@@ -4,14 +4,15 @@
   width: 100%; /* Use full available width */
   height: auto; /* Let content determine height */
   min-height: 49.625rem; /* Minimum height to maintain visual consistency */
-  padding: 0.625rem; /* 10px */
+  padding: 0.2rem; /* 10px */
   flex-direction: column;
   align-items: flex-end;
   gap: 0.25rem; /* Exact Figma gap */
-  border-radius: 0.4375rem; /* 7px */
-  border: 3px solid #FFF; /* Exact Figma border */
-  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #8D9CA2 8.7%, #7B7B7B 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem; /* 7px */
+  border: 0.5rem solid #dddddd; /* Exact Figma border */
+  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #383d3f 8.7%, #3d3d3d 100%);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
   position: relative;
   margin: 0 auto; /* Center the container */
 }
@@ -40,7 +41,7 @@
   align-self: stretch;
   border-radius: 0.4375rem; /* 7px */
   border: 3px solid #FFF; /* Exact Figma border */
-  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #F6F6F6 0%, #DDD 100%);
+  background: radial-gradient(121.76% 108.48% at 13.76% 13.28%, #ffffff 0%, #f3f3f3 100%);
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.255);
   position: relative;
 }
@@ -200,6 +201,11 @@
   align-self: stretch;
   flex: 1; /* Allows this section to take available vertical space */
   gap: 0;
+}
+
+/* Reversed layout for alternating features */
+.feature-content-reversed {
+  flex-direction: row-reverse;
 }
 
 /* Feature Image Section - SIMPLIFIED LIKE HERO */
@@ -438,18 +444,25 @@
   max-width: none; /* Remove max-width to use full available space */
   margin: 0; /* Remove auto centering */
   height: auto; /* Let content determine height */
+  min-height: auto !important; /* Override feature-container min-height */
 }
 
 .cta-content {
-  justify-content: center;
+  justify-content: normal; /* Space between text and button */
+  align-items: left; /* Center align items vertically */
+  justify-items: left;
   padding: 3rem; /* Increase padding to match visual spacing */
-  text-align: center;
+  text-align: left; /* Left align text content */
+  height: fit-content; /* Let content determine height */
   min-height: auto; /* Let content determine height */
-  flex: 1; /* Take available space */
+  flex: 1;
+  flex-direction: column; /* Take available space */
   /* Respect the feature-container gap and padding */
   margin: 0; /* Reset any margin to work with container gap */
   /* Add visual breathing room similar to feature sections */
   box-sizing: border-box;
+  gap: 2rem; /* Add gap between text and button sections */
+  align-items: flex-start; /* Align all children to the left edge */
 }
 
 .cta-text-content {
@@ -457,15 +470,32 @@
   flex-direction: column;
   gap: 1.5rem; /* More relative gap */
   max-width: 70%; /* Relative to container width */
-  margin: 0 auto;
-  justify-content: center; /* Center content vertically */
+  margin: 0; /* Remove auto centering */
+  justify-content: flex-start; /* Align content to start */
 }
 
-.cta-title {
+/* Button Section - Aligned with text content left edge */
+.cta-button-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-shrink: 0; /* Don't shrink the button section */
+  /* Remove any margin or padding that might offset alignment */
+  margin: 0;
+  padding: 0;
+}
+
+.cta-square-button {
+  /* SquareButton already has proper styling */
+}
+
+.cta-button-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 800;
-  font-size: clamp(36px, 4vw, 48px); /* Responsive font size */
-  line-height: 1.1em;
+  font-size: clamp(28px, 3vw, 36px); /* Smaller font size */
+  line-height: 1em;
   letter-spacing: -0.02em;
   color: #6D6D6D;
   margin: 0;
@@ -476,13 +506,32 @@
     inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
 }
 
+.cta-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 1.1em;
+  letter-spacing: -0.02em;
+  color: #6D6D6D;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  /* Similar text-shadow to feature title */
+  text-shadow: 
+    1px 1px 2.1px -1px rgba(0, 0, 0, 0.47), 
+    inset 1px 0.5px 1.1px -1px rgba(255, 255, 255, 0.17), 
+    inset -1px -1px 3.3px 0px rgba(0, 0, 0, 0.15);
+}
+
 .cta-description {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
-  font-size: clamp(20px, 2.5vw, 24px); /* Responsive font size */
+  font-size: 24px;
   line-height: 1.3em;
   color: #8A8A8A;
   margin: 0;
+  text-align: left;
 }
 
 .cta-buttons {
@@ -533,24 +582,22 @@
 /* CTA Responsive Design */
 @media (max-width: 768px) {
   .cta-content {
+    flex-direction: column; /* Stack text and button vertically on mobile */
     padding: 1.5rem 1rem; /* More compact on mobile */
+    justify-content: center; /* Center everything on mobile */
+    align-items: center; /* Center align on mobile */
+    text-align: center; /* Center text on mobile */
+    gap: 2rem; /* Maintain gap between sections */
   }
   
   .cta-text-content {
     max-width: 90%; /* Use more width on mobile */
     gap: 1rem; /* Tighter spacing on mobile */
+    text-align: center; /* Center text on mobile */
   }
   
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem; /* Tighter button spacing */
-  }
-  
-  .cta-button {
-    width: 100%;
-    max-width: 250px; /* Smaller max-width for mobile */
-    padding: 0.75rem 1.5rem; /* Adjust padding for mobile */
+  .cta-button-section {
+    margin-top: 0; /* Remove extra margin since gap handles spacing */
   }
 }
 

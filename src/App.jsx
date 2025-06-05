@@ -25,7 +25,7 @@ function App() {
   const features = [
     {
       title: "Chat with your AI edit assistant.",
-      description: "Tell it to organize your timeline, apply a rough grade, or build out a draft sequence—it responds instantly. Automate repetitive tasks",
+      description: "Tell it to organize your timeline, apply a rough grade, or build out a draft sequence, it responds instantly. Automate repetitive tasks",
       imageSrc: "/rivestills/AI_edit_assistant.png",
       imageAlt: "AI Chat Interface",
       artboard: "AI_edit_assistant"
@@ -92,7 +92,7 @@ function App() {
       />
       <SignupSection onSignupClick={handleSignupOpen} />
       <FeaturesSection features={features} />
-      <CTASection />
+      <CTASection onButtonClick={handleSignupOpen} />
 
       {/* Global Signup Popup */}
       <SignupPopup 
