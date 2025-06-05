@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/styles.css';
 import { Knob, Hole } from './UIbits';
 import RiveAnimation from './RiveAnimation';
@@ -11,6 +11,8 @@ const Feature = ({
   artboard = null,
   animationClass = ""
 }) => {
+  // State for knob rotation (if you want controlled mode)
+  const [knobAngle, setKnobAngle] = useState(0);
   
   // Function to split title into two lines at the best point near the middle
   const splitTitle = (titleString) => {
@@ -83,8 +85,13 @@ const Feature = ({
         {/* Decorative Hole/Dot - Exact Figma size */}
         <Hole size={10} />
 
-        {/* Decorative Knob/Toggle */}
-        <Knob size={90} indicatorAngle={0} />
+        {/* Interactive Knob - Uncontrolled mode (manages own state) */}
+        <Knob 
+          size={90} 
+          sensitivity={1.5}
+          minAngle={-135}
+          maxAngle={135}
+        />
       </div>
     </div>
   );

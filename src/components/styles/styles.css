@@ -632,3 +632,78 @@
     gap: 0.75rem; /* Even tighter spacing on mobile */
   }
 }
+
+/* ===== BACKGROUND SCREWS ===== */
+.background-screws {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5; /* Above background but below content */
+}
+
+/* Corner screws using pseudo-elements */
+.background-screws::before,
+.background-screws::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: url('/Screw.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+/* Top-left corner screw */
+.background-screws::before {
+  top: 2rem;
+  left: 2rem;
+}
+
+/* Top-right corner screw */
+.background-screws::after {
+  top: 2rem;
+  right: 2rem;
+}
+
+/* Edge and bottom corner screws using background-image */
+.background-screws {
+  background-image: 
+    url('/Screw.png'), /* Bottom-left */
+    url('/Screw.png'), /* Bottom-right */
+    /* Edge screws - Left side */
+    url('/Screw.png'), url('/Screw.png'), url('/Screw.png'), url('/Screw.png'),
+    url('/Screw.png'), url('/Screw.png'), url('/Screw.png'), url('/Screw.png'),
+    /* Edge screws - Right side */
+    url('/Screw.png'), url('/Screw.png'), url('/Screw.png'), url('/Screw.png'),
+    url('/Screw.png'), url('/Screw.png'), url('/Screw.png'), url('/Screw.png');
+  
+  background-position:
+    /* Bottom corners */
+    2rem calc(100% - 2rem), /* Bottom-left */
+    calc(100% - 2rem) calc(100% - 2rem), /* Bottom-right */
+    /* Left edge screws */
+    1rem 15%, 1rem 25%, 1rem 35%, 1rem 45%,
+    1rem 55%, 1rem 65%, 1rem 75%, 1rem 85%,
+    /* Right edge screws */
+    calc(100% - 1rem) 15%, calc(100% - 1rem) 25%, calc(100% - 1rem) 35%, calc(100% - 1rem) 45%,
+    calc(100% - 1rem) 55%, calc(100% - 1rem) 65%, calc(100% - 1rem) 75%, calc(100% - 1rem) 85%;
+  
+  background-size:
+    /* All screws same size */
+    24px 24px, 24px 24px,
+    24px 24px, 24px 24px, 24px 24px, 24px 24px,
+    24px 24px, 24px 24px, 24px 24px, 24px 24px,
+    24px 24px, 24px 24px, 24px 24px, 24px 24px,
+    24px 24px, 24px 24px, 24px 24px, 24px 24px;
+  
+  background-repeat:
+    /* All screws no-repeat */
+    no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat,
+    no-repeat, no-repeat, no-repeat, no-repeat;
+}

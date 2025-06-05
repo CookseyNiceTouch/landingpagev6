@@ -1,12 +1,26 @@
 import { useState } from 'react'
+import Background from './components/background'
+import TopBar from './topbar'
 import HeroSection from './components/herosection'
 import SignupSection from './components/signup'
 import FeaturesSection from './components/featuresection'
 import CTASection from './components/ctasection'
-import SquareButton from './components/UIbits/sqbutton'
+import SignupPopup from './components/signuppopup'
 import './App.css'
 
 function App() {
+  // Popup state management
+  const [isSignupPopupOpen, setIsSignupPopupOpen] = useState(false);
+
+  // Handle signup popup open/close
+  const handleSignupOpen = () => {
+    setIsSignupPopupOpen(true);
+  };
+
+  const handleSignupClose = () => {
+    setIsSignupPopupOpen(false);
+  };
+
   // Features data adapted for our Feature component structure
   const features = [
     {
@@ -69,28 +83,22 @@ function App() {
 
   return (
     <div className="app">
-      {/* Test SquareButton positioned in top-left */}
-      <SquareButton 
-        onClick={() => console.log('Square button clicked!')}
-        hue={41} // Red hue for testing
-        saturation={100} // Grayscale for testing saturation fix
-        lightness={50} // Darker lightness for testing
-        style={{
-          position: 'absolute',
-          top: '40px',
-          left: '200px',
-          zIndex: 15
-        }}
-      />
-      
+      <Background />
+      <TopBar onSignupClick={handleSignupOpen} />
       <HeroSection 
         title="You Create"
         subtitle="We Automate"
         description="Nice Touch, the OS for creators"
       />
-      <SignupSection />
+      <SignupSection onSignupClick={handleSignupOpen} />
       <FeaturesSection features={features} />
       <CTASection />
+
+      {/* Global Signup Popup */}
+      <SignupPopup 
+        isOpen={isSignupPopupOpen} 
+        onClose={handleSignupClose} 
+      />
     </div>
   )
 }
